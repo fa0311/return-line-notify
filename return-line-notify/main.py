@@ -1,19 +1,21 @@
+import asyncio
 import logging
 import os
-import threading
 from logging import StreamHandler
 from logging.handlers import TimedRotatingFileHandler
 from typing import Optional
 
 import uvicorn
-from environ import Environ
 from fastapi import FastAPI, Header, HTTPException, Request
+from fastapi.concurrency import asynccontextmanager
 from line_works.client import LineWorks
 from line_works.enums.yes_no_option import YesNoOption
 from line_works.mqtt.enums.packet_type import PacketType
 from line_works.mqtt.models.packet import MQTTPacket
 from line_works.mqtt.models.payload.message import MessagePayload
 from line_works.tracer import LineWorksTracer
+
+from .environ import Environ
 
 
 def receive_publish_packet(w: LineWorks, p: MQTTPacket) -> None:
@@ -34,7 +36,16 @@ def receive_publish_packet(w: LineWorks, p: MQTTPacket) -> None:
         w.send_text_message(payload.channel_no, f"channel_no: {channel_no}")
 
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    asyncio.create_task(tracer.connect())
+
+    yield
+
+    await tracer._ws.close()
+
+
+app = FastAPI(lifespan=lifespan)
 
 environ = Environ()
 works = LineWorks(
@@ -45,6 +56,26 @@ works = LineWorks(
 )
 tracer = LineWorksTracer(works=works)
 tracer.add_trace_func(PacketType.PUBLISH, receive_publish_packet)
+
+
+os.makedirs(environ.log_path.parent, exist_ok=True)
+
+stream_handler = StreamHandler()
+stream_handler.setLevel(logging.INFO)
+file_handler = TimedRotatingFileHandler(
+    filename=environ.log_path,
+    when="D",
+    interval=1,
+    backupCount=90,
+    encoding="utf-8",
+)
+file_handler.setLevel(logging.DEBUG)
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[stream_handler, file_handler],
+)
 
 
 @app.post("/api/notify")
@@ -74,32 +105,5 @@ async def notify(request: Request, authorization: Optional[str] = Header(None)):
     return {"status": "ok"}
 
 
-def run_fastapi():
-    uvicorn.run(app, host="0.0.0.0", port=environ.port)
-
-
 if __name__ == "__main__":
-    log_path = environ.log_path
-
-    os.makedirs(log_path.parent, exist_ok=True)
-
-    stream_handler = StreamHandler()
-    stream_handler.setLevel(logging.INFO)
-    file_handler = TimedRotatingFileHandler(
-        filename=log_path,
-        when="D",
-        interval=1,
-        backupCount=90,
-        encoding="utf-8",
-    )
-    file_handler.setLevel(logging.DEBUG)
-
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-        handlers=[stream_handler, file_handler],
-    )
-
-    fastapi_thread = threading.Thread(target=run_fastapi, daemon=True)
-    fastapi_thread.start()
-    tracer.trace()
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -9,7 +9,6 @@ class Environ(BaseSettings):
 
     works_id: str = Field(alias="WORKS_ID")
     password: str = Field(alias="PASSWORD")
-    port: int = Field(default=8080, alias="PORT")
 
     log_path: Path = Field(
         default=Path(".log/debug.log"),

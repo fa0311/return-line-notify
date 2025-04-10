@@ -4,7 +4,7 @@
       "name": "Python",
       "type": "debugpy",
       "request": "launch",
-      "program": "return-line-notify/main.py",
+      "module": "return-line-notify.main",
       "console": "integratedTerminal",
       "justMyCode": false
     }

@@ -1,6 +1,6 @@
 import requests
 
-API_URI = "http://127.0.0.1:3333/api/notify"
+API_URI = "http://127.0.0.1:8000/api/notify"
 
 headers = {"Authorization": "Bearer 335874895"}
 
