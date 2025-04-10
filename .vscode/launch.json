@@ -1,0 +1,12 @@
+{
+  "configurations": [
+    {
+      "name": "Python",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "return-line-notify/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ]
+}
