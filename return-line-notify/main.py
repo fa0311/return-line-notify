@@ -9,7 +9,6 @@ import uvicorn
 from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.concurrency import asynccontextmanager
 from line_works.client import LineWorks
-from line_works.enums.yes_no_option import YesNoOption
 from line_works.mqtt.enums.packet_type import PacketType
 from line_works.mqtt.models.packet import MQTTPacket
 from line_works.mqtt.models.payload.message import MessagePayload
@@ -48,12 +47,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 environ = Environ()
-works = LineWorks(
-    works_id=environ.works_id,
-    password=environ.password,
-    keep_login=YesNoOption.NO,
-    remember_id=YesNoOption.NO,
-)
+works = LineWorks(works_id=environ.works_id, password=environ.password)
 tracer = LineWorksTracer(works=works)
 tracer.add_trace_func(PacketType.PUBLISH, receive_publish_packet)
 
