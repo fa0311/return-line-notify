@@ -3,6 +3,7 @@ import logging
 import os
 from logging import StreamHandler
 from logging.handlers import TimedRotatingFileHandler
+from pathlib import Path
 from typing import Optional
 
 import uvicorn
@@ -35,6 +36,27 @@ def receive_publish_packet(w: LineWorks, p: MQTTPacket) -> None:
         w.send_text_message(payload.channel_no, f"channel_no: {channel_no}")
 
 
+def init_log(path: Path) -> None:
+    os.makedirs(path.parent, exist_ok=True)
+
+    stream_handler = StreamHandler()
+    stream_handler.setLevel(logging.INFO)
+    file_handler = TimedRotatingFileHandler(
+        filename=path,
+        when="D",
+        interval=1,
+        backupCount=90,
+        encoding="utf-8",
+    )
+    file_handler.setLevel(logging.DEBUG)
+
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+        handlers=[stream_handler, file_handler],
+    )
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     asyncio.create_task(tracer.connect())
@@ -50,26 +72,7 @@ environ = Environ()
 works = LineWorks(works_id=environ.works_id, password=environ.password)
 tracer = LineWorksTracer(works=works)
 tracer.add_trace_func(PacketType.PUBLISH, receive_publish_packet)
-
-
-os.makedirs(environ.log_path.parent, exist_ok=True)
-
-stream_handler = StreamHandler()
-stream_handler.setLevel(logging.INFO)
-file_handler = TimedRotatingFileHandler(
-    filename=environ.log_path,
-    when="D",
-    interval=1,
-    backupCount=90,
-    encoding="utf-8",
-)
-file_handler.setLevel(logging.DEBUG)
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    handlers=[stream_handler, file_handler],
-)
+init_log(environ.log_path)
 
 
 @app.post("/api/notify")
