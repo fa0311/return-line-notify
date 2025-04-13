@@ -24,8 +24,8 @@ class LineWorksStickerFixture:
                 assert isinstance(value, str)
                 key, value = value.split("=", 1)
                 variable[key.strip()] = json.loads(value.strip())
-        preloadOnPageLoad = variable["window['preloadOnPageLoad']"]
-        self.sticker = json.loads(preloadOnPageLoad["sticker_config"])
+        preload = variable["window['preloadOnPageLoad']"]
+        self.sticker = json.loads(preload["sticker_config"])
         with open("sticker.json", "w") as f:
             json.dump(self.sticker, f, indent=4)
 

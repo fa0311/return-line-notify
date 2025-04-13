@@ -45,18 +45,18 @@ async def notify(
     elif content_type == "multipart/form-data":
         form = await request.form()
         message = form.get("message")
-        imageFile = form.get("imageFile")
+        image_file = form.get("imageFile")
         if isinstance(message, str):
             works.send_text_message(
                 to,
                 message,
             )
-        if isinstance(imageFile, UploadFile) and isinstance(imageFile.filename, str):
+        if isinstance(image_file, UploadFile) and isinstance(image_file.filename, str):
             works.send_image_message_with_file(
                 to,
                 ChannelType(channel_type),
-                imageFile.file.read(),
-                imageFile.filename,
+                image_file.file.read(),
+                image_file.filename,
             )
 
     return {"status": "ok"}
