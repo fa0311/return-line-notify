@@ -1,0 +1,988 @@
+{
+    "proxies": [
+        {
+            "line": "https://line-proxy.worksmobile.com"
+        }
+    ],
+    "stickerPackages": [
+        {
+            "id": "30148508",
+            "version": "1",
+            "required": true,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 4,
+            "isLimitedEdition": true,
+            "startDate": "20250401000000",
+            "endDate": "20260331235959"
+        },
+        {
+            "id": "30148586",
+            "version": "1",
+            "required": true,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 6,
+            "isLimitedEdition": true,
+            "startDate": "20250401000000",
+            "endDate": "20260331235959"
+        },
+        {
+            "id": "29445501",
+            "version": "1",
+            "required": true,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 7,
+            "isLimitedEdition": false,
+            "startDate": "20250218000000",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "12034",
+            "version": "1",
+            "required": true,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 32,
+            "isLimitedEdition": false,
+            "startDate": "20220609000000",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "12036",
+            "version": "1",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 33,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "11537",
+            "version": "1",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 34,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "11538",
+            "version": "1",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 35,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "789",
+            "version": "14",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 38,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "546",
+            "version": "14",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 39,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "446",
+            "version": "13",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 42,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "538",
+            "version": "12",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 43,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "543",
+            "version": "12",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 44,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "1628",
+            "version": "12",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 45,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "4452",
+            "version": "6",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 46,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "3434",
+            "version": "6",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 47,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "4057",
+            "version": "6",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 48,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "6136",
+            "version": "6",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 49,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "6325",
+            "version": "7",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 50,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "1",
+            "version": "100",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 51,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "2",
+            "version": "100",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 52,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "7482",
+            "version": "1",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 53,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "584",
+            "version": "16",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 54,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "1029",
+            "version": "10",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 55,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "534",
+            "version": "12",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 56,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "4",
+            "version": "100",
+            "required": false,
+            "lastUpdateDate": "20250411185137",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 58,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        }
+    ],
+    "emojiPackages": [
+        {
+            "id": "1.1",
+            "version": "3",
+            "required": true,
+            "lastUpdateDate": "20190616212546",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 1,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        },
+        {
+            "id": "1.2",
+            "version": "3",
+            "required": false,
+            "lastUpdateDate": "20190616212602",
+            "services": [
+                {
+                    "note": [
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "mail": [
+                        "works"
+                    ]
+                },
+                {
+                    "message": [
+                        "line",
+                        "works",
+                        "worksat"
+                    ]
+                },
+                {
+                    "home": [
+                        "works"
+                    ]
+                }
+            ],
+            "sortOrder": 2,
+            "isLimitedEdition": false,
+            "startDate": "20220609151611",
+            "endDate": "29991231235959"
+        }
+    ],
+    "suggestion": {
+        "item": "https://static.worksmobile.net/static/wm/sticker_suggest/2/26/item.db",
+        "schemeNo": 2,
+        "revision": 26,
+        "tags": [
+            {
+                "label": "\ud55c\uad6d\uc5b4",
+                "locale": "ko_KR",
+                "url": "https://static.worksmobile.net/static/wm/sticker_suggest/2/26/tag_kr.db"
+            },
+            {
+                "label": "English",
+                "locale": "en_US",
+                "url": "https://static.worksmobile.net/static/wm/sticker_suggest/2/26/tag_eng.db"
+            },
+            {
+                "label": "\u65e5\u672c\u8a9e",
+                "locale": "ja_JP",
+                "url": "https://static.worksmobile.net/static/wm/sticker_suggest/2/26/tag_jp.db"
+            },
+            {
+                "label": "\u7b80\u4f53\u4e2d\u6587",
+                "locale": "zh_CN",
+                "url": "https://static.worksmobile.net/static/wm/sticker_suggest/2/26/tag_ch.db"
+            },
+            {
+                "label": "\u7e41\u9ad4\u4e2d\u6587",
+                "locale": "zh_TW",
+                "url": "https://static.worksmobile.net/static/wm/sticker_suggest/2/26/tag_chmd.db"
+            }
+        ]
+    }
+}

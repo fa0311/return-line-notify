@@ -1,7 +1,14 @@
 {
   "configurations": [
     {
-      "name": "Python",
+      "name": "Python デバッガー: 現在のファイル",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python Server",
       "type": "debugpy",
       "request": "launch",
       "module": "return-line-notify.main",
