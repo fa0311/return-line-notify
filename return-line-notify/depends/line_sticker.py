@@ -26,8 +26,6 @@ class LineWorksStickerFixture:
                 variable[key.strip()] = json.loads(value.strip())
         preload = variable["window['preloadOnPageLoad']"]
         self.sticker = json.loads(preload["sticker_config"])
-        with open("sticker.json", "w") as f:
-            json.dump(self.sticker, f, indent=4)
 
     def __call__(self):
         return LineWorksSticker(self.sticker)
