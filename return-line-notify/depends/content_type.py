@@ -12,6 +12,6 @@ def parse_content_type_header(header: str) -> tuple[str, dict[str, str]]:
     return mime, params
 
 
-def contentType(request: Request) -> str:
+def content_type(request: Request) -> str:
     main, params = parse_content_type_header(request.headers["content-type"])
     return main

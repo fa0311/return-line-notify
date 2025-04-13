@@ -43,4 +43,4 @@ class LineWorksSticker:
         return res[0] if len(res) > 0 else None
 
 
-lineWorksStickerDepends = LineWorksStickerFixture()
+line_works_sticker_depends = LineWorksStickerFixture()

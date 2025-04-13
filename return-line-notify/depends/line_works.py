@@ -12,4 +12,4 @@ class LineWorksFixture:
         return self.works
 
 
-lineWorksDepends = LineWorksFixture()
+line_works_depends = LineWorksFixture()

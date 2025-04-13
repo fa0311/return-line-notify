@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, Request
 from line_works.client import ChannelType, LineWorks, Sticker
 from starlette.datastructures import UploadFile
 
-from .depends.bearer import bearerToken
-from .depends.content_type import contentType
-from .depends.line_sticker import LineWorksSticker, lineWorksStickerDepends
-from .depends.line_works import lineWorksDepends
+from .depends.bearer import bearer_token
+from .depends.content_type import content_type
+from .depends.line_sticker import LineWorksSticker, line_works_sticker_depends
+from .depends.line_works import line_works_depends
 
 api = APIRouter()
 
@@ -13,10 +13,10 @@ api = APIRouter()
 @api.post("/notify")
 async def notify(
     request: Request,
-    works: LineWorks = Depends(lineWorksDepends),
-    bearer_token: str = Depends(bearerToken),
-    content_type: str = Depends(contentType),
-    sticker: LineWorksSticker = Depends(lineWorksStickerDepends),
+    works: LineWorks = Depends(line_works_depends),
+    bearer_token: str = Depends(bearer_token),
+    content_type: str = Depends(content_type),
+    sticker: LineWorksSticker = Depends(line_works_sticker_depends),
 ):
     to, channel_type = [int(i) for i in bearer_token.split(":")]
 
