@@ -1,0 +1,27 @@
+[Unit]
+Description=Line Notify
+
+[Service]
+Type=simple
+
+# HERE_YOUR_WORKING_DIRECTORY
+WorkingDirectory=...
+
+# EXECUTE PYTHON SCRIPT
+ExecStart=python -m uvicorn return-line-notify.main:app --host 0.0.0.0 --port 4535
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+# Reboot daily
+Restart=always
+RestartSec=2
+RuntimeMaxSec=86400
+
+# Log to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=testapp
+
+
+[Install]
+WantedBy=multi-user.target
