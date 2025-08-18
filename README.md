@@ -21,6 +21,12 @@ or
 python -m return-line-notify.main
 ```
 
+### Docker
+
+```sh
+docker run -d -p 3333:3333 -e WORKS_ID="admin@example" -e PASSWORD="password" ghcr.io/fa0311/return-line-notify/return-line-notify-docker:latest
+```
+
 ## Send Request
 
 ![1744545368191](image/README/1744545368191.png)!
