@@ -6,12 +6,14 @@ from fastapi.concurrency import asynccontextmanager
 from line_works.client import LineWorks
 from line_works.mqtt.enums.packet_type import PacketType
 from line_works.tracer import LineWorksTracer
+from prometheus_client import make_asgi_app
 
 from .api import api, line_works_depends
 from .depends.line_sticker import line_works_sticker_depends
 from .environ import Environ
 from .line_works import receive_publish_packet
 from .logger import init_logger
+from .metrics import MetricsController, registry
 
 environ = Environ()
 
@@ -24,6 +26,7 @@ async def lifespan(app: FastAPI):
     tracer = LineWorksTracer(works=works)
     tracer.add_trace_func(PacketType.PUBLISH, receive_publish_packet)
     asyncio.create_task(tracer.connect())
+    asyncio.create_task(MetricsController.up_time())
 
     yield
 
@@ -32,6 +35,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 app.include_router(api, prefix="/api")
+app.mount("/metrics", make_asgi_app(registry))
 init_logger(environ.log_path)
 
 

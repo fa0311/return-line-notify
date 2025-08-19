@@ -6,6 +6,7 @@ from .depends.bearer import bearer_token
 from .depends.content_type import content_type
 from .depends.line_sticker import LineWorksSticker, line_works_sticker_depends
 from .depends.line_works import line_works_depends
+from .metrics import SendMessageMetrics
 
 api = APIRouter()
 
@@ -25,38 +26,44 @@ async def notify(
         message = form.get("message")
         sticker_id = form.get("stickerId")
         sticker_package_id = form.get("stickerPackageId")
+
         if isinstance(message, str):
-            works.send_text_message(
-                to,
-                message,
-            )
+            with SendMessageMetrics(to, "text"):
+                works.send_text_message(to, message)
+
         if isinstance(sticker_id, str) and isinstance(sticker_package_id, str):
-            info = sticker.get_info(sticker_package_id)
-            works.send_sticker_message(
-                to,
-                Sticker(
-                    pkgId=sticker_package_id,
-                    pkgVer=info["version"] if info else "",
-                    stkId=sticker_id,
-                    stkOpt="",
-                    stkType="works" if info else "line",
-                ),
-            )
+            with SendMessageMetrics(to, "text"):
+                info = sticker.get_info(sticker_package_id)
+                works.send_sticker_message(
+                    to,
+                    Sticker(
+                        pkgId=sticker_package_id,
+                        pkgVer=info["version"] if info else "",
+                        stkId=sticker_id,
+                        stkOpt="",
+                        stkType="works" if info else "line",
+                    ),
+                )
     elif content_type == "multipart/form-data":
         form = await request.form()
         message = form.get("message")
         image_file = form.get("imageFile")
+
         if isinstance(message, str):
-            works.send_text_message(
-                to,
-                message,
-            )
+            with SendMessageMetrics(to, "text"):
+                works.send_text_message(
+                    to,
+                    message,
+                )
         if isinstance(image_file, UploadFile) and isinstance(image_file.filename, str):
-            works.send_image_message_with_file(
-                to,
-                ChannelType(channel_type),
-                image_file.file.read(),
-                image_file.filename,
-            )
+            with SendMessageMetrics(to, "image"):
+                works.send_image_message_with_file(
+                    to,
+                    ChannelType(channel_type),
+                    image_file.file.read(),
+                    image_file.filename,
+                )
+    else:
+        raise ValueError(f"Unsupported content type: {content_type}")
 
     return {"status": "ok"}
