@@ -30,6 +30,7 @@ message_send_duration_seconds = Histogram(
     "Message send duration in seconds",
     ["channel_no", "message_type"],
     registry=registry,
+    buckets=[0.1, 0.25, 0.5, 0.75, 1, 2.5, 5, 10],
 )
 
 
