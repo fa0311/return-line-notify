@@ -32,7 +32,7 @@ async def notify(
                 works.send_text_message(to, message)
 
         if isinstance(sticker_id, str) and isinstance(sticker_package_id, str):
-            with SendMessageMetrics(to, "text"):
+            with SendMessageMetrics(to, "sticker"):
                 info = sticker.get_info(sticker_package_id)
                 works.send_sticker_message(
                     to,
