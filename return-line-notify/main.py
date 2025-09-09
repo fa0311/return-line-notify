@@ -7,6 +7,7 @@ from line_works.client import LineWorks
 from line_works.mqtt.enums.packet_type import PacketType
 from line_works.tracer import LineWorksTracer
 from prometheus_client import make_asgi_app
+import logging
 
 from .api import api, line_works_depends
 from .depends.line_sticker import line_works_sticker_depends
@@ -18,19 +19,28 @@ from .metrics import MetricsController, registry
 environ = Environ()
 
 
+async def connect(works_id: str, password: str):
+    while True:
+        works = LineWorks(works_id=works_id, password=password)
+        line_works_depends.init(works)
+        line_works_sticker_depends.init(works)
+        tracer = LineWorksTracer(works=works)
+        tracer.add_trace_func(PacketType.PUBLISH, receive_publish_packet)
+        try:
+            await tracer.connect()
+        except Exception as e:
+            logging.error("Failed to connect to Line Works", exc_info=e)
+            await tracer.disconnect()
+
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    works = LineWorks(works_id=environ.works_id, password=environ.password)
-    line_works_depends.init(works)
-    line_works_sticker_depends.init(works)
-    tracer = LineWorksTracer(works=works)
-    tracer.add_trace_func(PacketType.PUBLISH, receive_publish_packet)
-    asyncio.create_task(tracer.connect())
+    asyncio.create_task(connect(environ.works_id, environ.password))
     asyncio.create_task(MetricsController.up_time())
 
     yield
 
-    await tracer.disconnect()
 
 
 app = FastAPI(lifespan=lifespan)
