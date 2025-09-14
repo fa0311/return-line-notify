@@ -3,6 +3,7 @@ from line_works.mqtt.models.packet import MQTTPacket
 from line_works.mqtt.models.payload.message import MessagePayload
 
 from .metrics import MetricsController, SendMessageMetrics
+from .depends.line_reconnect import line_reconnect_depends
 
 
 def receive_publish_packet(w: LineWorks, p: MQTTPacket) -> None:
@@ -26,3 +27,6 @@ def receive_publish_packet(w: LineWorks, p: MQTTPacket) -> None:
     elif payload.loc_args1 == "/notify":
         with SendMessageMetrics(channel_no, "command"):
             w.send_text_message(payload.channel_no, f"{channel_no}:{channel_type}")
+    
+    elif payload.loc_args1 == "/reconnect":
+        line_reconnect_depends().resolve(None)

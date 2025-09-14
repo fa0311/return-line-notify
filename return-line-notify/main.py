@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 import uvicorn
 from fastapi import FastAPI
@@ -7,14 +8,16 @@ from line_works.client import LineWorks
 from line_works.mqtt.enums.packet_type import PacketType
 from line_works.tracer import LineWorksTracer
 from prometheus_client import make_asgi_app
-import logging
 
 from .api import api, line_works_depends
+from .depends.line_reconnect import line_reconnect_depends
 from .depends.line_sticker import line_works_sticker_depends
 from .environ import Environ
 from .line_works import receive_publish_packet
 from .logger import init_logger
 from .metrics import MetricsController, registry
+from .promise import Promise
+from .reconnect import ReconnectError, reconnect
 
 environ = Environ()
 
@@ -26,12 +29,19 @@ async def connect(works_id: str, password: str):
         line_works_sticker_depends.init(works)
         tracer = LineWorksTracer(works=works)
         tracer.add_trace_func(PacketType.PUBLISH, receive_publish_packet)
+        line_reconnect_depends.init(Promise[None]())
         try:
-            await tracer.connect()
+            async with asyncio.TaskGroup() as tg:
+                tg.create_task(asyncio.wait_for(tracer.connect(), timeout=86400))
+                tg.create_task(asyncio.wait_for(reconnect(), timeout=86400))
+        except asyncio.TimeoutError:
+            logging.error("tracer.connect() timed out after 24 hours")
+            await tracer.disconnect()
+        except ReconnectError as e:
+            logging.warning("Unexpected error in connect()", exc_info=e)
         except Exception as e:
             logging.error("Failed to connect to Line Works", exc_info=e)
             await tracer.disconnect()
-
 
 
 @asynccontextmanager
@@ -40,7 +50,6 @@ async def lifespan(app: FastAPI):
     asyncio.create_task(MetricsController.up_time())
 
     yield
-
 
 
 app = FastAPI(lifespan=lifespan)
