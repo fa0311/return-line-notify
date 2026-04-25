@@ -13,6 +13,7 @@ from .api import api, line_works_depends
 from .depends.line_reconnect import line_reconnect_depends
 from .depends.line_sticker import line_works_sticker_depends
 from .environ import Environ
+from .health import health
 from .line_works import receive_publish_packet
 from .logger import init_logger
 from .metrics import MetricsController, registry
@@ -54,6 +55,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 app.include_router(api, prefix="/api")
+app.include_router(health)
 app.mount("/metrics", make_asgi_app(registry))
 init_logger(environ.log_path)
 
