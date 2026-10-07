@@ -1,11 +1,18 @@
 import pytest
 from lotify.client import Client
 
+from tests.conftest import integration_enabled
+
+# 実際に起動したサーバーに対して通知を送る。RLN_INTEGRATION=1 のときだけ実行
+pytestmark = pytest.mark.skipif(
+    not integration_enabled(), reason="set RLN_INTEGRATION=1 to run"
+)
+
 
 @pytest.fixture(scope="session")
 def client() -> Client:
     return Client(
-        api_origin="http://127.0.0.1:8000",
+        api_origin="http://127.0.0.1:3333",
     )
 
 
@@ -31,7 +38,3 @@ def test_send_image(client: Client):
         file=open("tests/assets/sample.png", "rb"),
     )
     assert res["status"] == "ok"
-
-
-if __name__ == "__main__":
-    pass

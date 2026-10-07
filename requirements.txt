@@ -1,7 +1,9 @@
-line-works-sdk>=3.7,<4.0
+line-works-sdk @ https://github.com/fa0311/line-works-sdk/archive/refs/tags/v3.10.tar.gz
 pydantic>=2.11,<3.0
 pydantic_settings>=2.8,<3.0
 fastapi>=0.115,<1.0
 uvicorn[standard]>=0.34,<1.0
 python-multipart>=0.0.20,<1.0
 prometheus-client>=0.21,<1.0
+requests>=2.32,<3.0
+urllib3>=2.0,<3.0
