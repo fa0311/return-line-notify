@@ -3,7 +3,7 @@ from fastapi import Request
 
 def parse_content_type_header(header: str) -> tuple[str, dict[str, str]]:
     parts = [part.strip() for part in header.split(";")]
-    mime = parts[0]
+    mime = parts[0].lower()
     params = {}
     for param in parts[1:]:
         if "=" in param:
@@ -13,5 +13,5 @@ def parse_content_type_header(header: str) -> tuple[str, dict[str, str]]:
 
 
 def content_type(request: Request) -> str:
-    main, params = parse_content_type_header(request.headers["content-type"])
+    main, _ = parse_content_type_header(request.headers.get("content-type", ""))
     return main

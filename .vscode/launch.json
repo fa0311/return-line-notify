@@ -11,7 +11,7 @@
       "name": "Python Server",
       "type": "debugpy",
       "request": "launch",
-      "module": "return-line-notify.main",
+      "module": "return_line_notify.main",
       "console": "integratedTerminal",
       "justMyCode": false
     }
